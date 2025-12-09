@@ -1,5 +1,6 @@
-💻 Mini-Projeto-Redes: Repositório Colaborativo de Imagens (UDP Confiável)
-Este projeto foi desenvolvido como atividade proposta na cadeira de Introdução aos Sistemas Distribuídos e Redes de Computadores do CIn UFPE.
+Mini-Projeto-Redes-Sistema-Distribu-do-Reposit-rio-de-imagens-colaborativo
+atividade proposta na cadeira de Introdução aos Sistemas Distribuídos e Redes do CIn UFPE
+
 
 💡 Objetivo Central
 O objetivo deste projeto é implementar um sistema de repositório colaborativo de imagens utilizando o protocolo UDP (User Datagram Protocol), focado em construir a confiabilidade da comunicação sobre um protocolo inerentemente não confiável.
