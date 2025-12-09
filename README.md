@@ -35,37 +35,28 @@ Manipulação de Imagens: Biblioteca Pillow (PIL) para gerar as miniaturas (thum
 ├── client.py   # Cliente UDP: implementa RDT, menu interativo, envia comandos e recebe/salva arquivos.
 ├── metadata.json # Arquivo gerado para armazenar o catálogo de imagens.
 └── README.md   # Este arquivo
+
 ▶️ Como Rodar o Projeto
 Pré-requisitos:
 Python 3 instalado
-
 pip funcionando
 
-A biblioteca Pillow instalada:
+A biblioteca Pillow instalada: pip install Pillow
 
-Bash
-
-pip install Pillow
-Rodando o Servidor
+Rodando o Servidor:
 Abra um terminal na pasta raiz do projeto.
 
-Execute o servidor:
-
-Bash
-
-python server.py
+Execute o servidor: python server.py
 O servidor iniciará a escuta em 0.0.0.0:5000 (ou a porta configurada).
 
 Mantenha este terminal aberto. Ele mostrará logs das transferências e comandos RDT.
 
-Rodando o Cliente
+Rodando o Cliente:
+
 Abra outro terminal na mesma pasta do projeto.
 
-Execute o cliente:
+Execute o cliente: python client.py
 
-Bash
-
-python client.py
 O cliente pedirá o nome de usuário e exibirá o menu de comandos.
 
 🧠 Foco da Implementação (RDT)
