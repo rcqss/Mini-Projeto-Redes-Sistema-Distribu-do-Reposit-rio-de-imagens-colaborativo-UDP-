@@ -43,7 +43,7 @@ def rdt_send(sock, data_bytes, addr):
                         seq += 1
                         offset += len(chunk)
             except socket.timeout:
-                pass # reenviar pacote
+                pass #reenvia o pacote
     return True
 
 def rdt_recv(sock):
@@ -136,39 +136,39 @@ def cmd_download_view(sock, server_addr, mode="DOWNLOAD"):
     nome = input("Nome do arquivo: ").strip()
     cmd = f"{mode}|{nome}"
     
-    # 1. Envia pedido
+    # envia pedido
     if not rdt_send(sock, cmd, server_addr):
         print("Erro: Falha ao enviar comando.")
         return
 
-    # 2. Recebe resposta inicial (FOUND ou ERROR)
+    # recebe reposta
     resp = rdt_recv(sock)
     
     if resp:
         resp_str = resp.decode()
         if resp_str.startswith("FOUND"):
-            # 3. Confirma que está pronto para receber os dados
+            # confirma que ta pronto pra receber dados
             rdt_send(sock, "READY", server_addr)
             
-            # 4. Recebe o arquivo via UDP Confiável
+            # recebe arquivo
             file_data = rdt_recv(sock)
             
             if file_data:
                 
-                # Garante que a pasta existe
+                # garante que a pasta existe
                 os.makedirs(DOWNLOAD_DIR, exist_ok=True)
                 
-                # Define o prefixo (para não sobrescrever arquivos originais se estiver testando local)
+                # define o prefixo
                 prefix = "" if mode == "DOWNLOAD" else "thumb_"
                 
-                # Cria o caminho completo: "downloads_cliente/foto.jpg"
+                #cria o caminho
                 caminho_completo = os.path.join(DOWNLOAD_DIR, prefix + nome)
                 
                 with open(caminho_completo, "wb") as f:
                     f.write(file_data)
                     
                 print(f"Sucesso! Arquivo salvo em: {caminho_completo}")
-                # ======================================
+
             else:
                 print("Erro: Recebimento de dados falhou.")
         else:
